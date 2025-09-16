@@ -1,0 +1,7 @@
+<ion-item *ngFor="let product of products">
+  <ion-label>
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.price | currency }}</p>
+  </ion-label>
+  <ion-button slot="end" (click)="addToCart(product)">Agregar</ion-button>
+</ion-item>
