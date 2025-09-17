@@ -1,25 +1,18 @@
 import { Component } from '@angular/core';
-import { CartService } from 'src/app/services/cart';
-import { Product } from 'src/app/services/products';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
+  standalone: true,
+  imports: [CommonModule, IonicModule, CurrencyPipe]
 })
 export class ProductsPage {
-  // Lista de productos de ejemplo
-  products: Product[] = [
-    { id: 1, name: 'Camiseta', price: 50000 },
-    { id: 2, name: 'Pantalón', price: 80000 },
-    { id: 3, name: 'Zapatos', price: 120000 }
-  ];
+  products: any[] = [];
 
-  constructor(private cartService: CartService) {}
-
-  // 🔑 ESTE MÉTODO ES EL QUE FALTABA
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    alert(`${product.name} agregado al carrito`);
+  addToCart(product: any) {
+    console.log('Producto agregado:', product);
   }
 }

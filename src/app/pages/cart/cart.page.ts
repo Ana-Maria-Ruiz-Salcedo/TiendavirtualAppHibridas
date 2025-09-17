@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component } from '@angular/core';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [CommonModule, IonicModule, CurrencyPipe]
 })
-export class CartPage implements OnInit {
+export class CartPage {
+  cart: any[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  clearCart() {
+    this.cart = [];
   }
-
 }
